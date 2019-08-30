@@ -9,9 +9,7 @@ meta npm install
 
 ## The problem:
 
-```
-meta npm run lint
-```
+### 1. `meta npm run lint`
 
 does this:
 ```
@@ -31,8 +29,12 @@ no-use-before-declare is deprecated. Since TypeScript 2.9. Please use the built-
 no-unused-variable is deprecated. Since TypeScript 2.9. Please use the built-in compiler checks instead.
 repos/node-starter ✓
  sramam  tmp  trial  meta-bug-16  master
-$ meta npm run lint --exclude .
+```
 
+### 2. `meta npm run lint --exclude .`
+
+does this:
+```
 /private/tmp/trial/meta-bug-16:
 npm ERR! missing script: lint
 
@@ -47,14 +49,17 @@ repos/node-starter:
 
 no-use-before-declare is deprecated. Since TypeScript 2.9. Please use the built-in compiler checks instead.
 no-unused-variable is deprecated. Since TypeScript 2.9. Please use the built-in compiler checks instead.
-pwrepos/node-starter ✓
-pwd
- sramam  tmp  trial  meta-bug-16  master
+repos/node-starter ✓
+```
+
+```
 $ pwd
 /tmp/trial/meta-bug-16
- sramam  tmp  trial  meta-bug-16  master
-$ meta npm run lint --exclude /tmp/trial/meta-bug-16
+```
 
+### 3. `meta npm run lint --exclude /tmp/trial/meta-bug-16`
+does this:
+```
 /private/tmp/trial/meta-bug-16:
 npm ERR! missing script: lint
 
@@ -70,6 +75,4 @@ repos/node-starter:
 no-use-before-declare is deprecated. Since TypeScript 2.9. Please use the built-in compiler checks instead.
 no-unused-variable is deprecated. Since TypeScript 2.9. Please use the built-in compiler checks instead.
 repos/node-starter ✓
- sramam  tmp  trial  meta-bug-16  master
-
- ```
+```
